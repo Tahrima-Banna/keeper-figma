@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+$headings: (h1, 40px, 50px, 700),
+           (h2, 32px, 40px, 600),
+           (h3, 28px, 35px, 600),
+           (h4, 24px, 32px, 500),
+           (h5, 20px, 28px, 400),
+           (h6, 16px, 24px, 400);
+
+
+@each $name, $font-size, $line-height, $font-weight in $headings{
+    #{$name}{
+        font-size: $font-size;
+        font-weight: $font-weight;
+        line-height: $line-height;
+    }
+}
+
+$transforms: lowercase, capitalize, uppercase;
+
+
+@each $transform in $transforms {
+    .text-#{$transform} {
+        text-transform: $transform;
+    }
+}
+
+
+$aligns: left, center, right, justify;
+
+
+@each $align in $aligns {
+    .text-#{$align} {
+        text-align: $align;
+    }
+}
+$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+
+@each $weight in $weights {
+    .fw-#{$weight} {
+        font-weight: $weight;
+    }
+}
+

@@ -1,0 +1,119 @@
+.footer{
+ 
+    background-color:rgba(246, 246, 246, 1);
+    padding-right:0px;
+    padding-left:0px;
+    padding-top:20px;
+    padding-bottom:20px;
+    @include min-lg{
+        padding-top:40px;
+        padding-bottom:40px;
+    }
+    &__heading{
+      font-family:"Poppins", serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height:32.4px;
+      letter-spacing: 0px;
+      color:rgba(228, 130, 95, 1);
+      margin-top:20px;
+    }
+    &__content{
+        margin-top:40px;
+        
+        @include min-md{
+            margin-top:80px;
+           
+        }
+    }
+    &__dsc,&__address{
+        margin-top:15px;
+        color:rgba(0, 0, 0, 0.8);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25.2px;
+        letter-spacing: 0px;
+        min-height:165px;
+        @include min-md{
+            margin-top:20px;
+           
+        }
+
+    }
+
+    &__address{
+        
+        height:auto;
+        @include min-md{
+            
+            height:100px;
+           
+        }
+    }
+
+    &__social{
+        margin-top:15px;
+        @include min-md{
+            margin-top:20px;
+           
+        }
+    }
+    &__social-link {
+        display: inline-block;
+        color:rgba(18, 17, 39, 0.32);
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin-right:15px;
+        @include min-md{
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            margin-right:20px;
+           
+        }
+        @include min-xl{
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            margin-right:32px;
+           
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+        &:first-child{
+          background-color:rgba(18, 17, 39, 0.32) ;
+          color:#fff;
+          border-radius:50%;
+          height:20px;
+          @include min-md{
+            margin-top:23.85px;
+           
+        }
+        }
+    }
+    &__btn{
+        margin-top:20px;
+    }
+    &__border{
+        margin-top:40px;
+       // border-top: 1px solid rgba(18, 17, 39, 0.12);
+        
+    }
+    &__line{
+  
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28.8px;
+        letter-spacing: 0px;
+        color:rgba(18, 17, 39, 0.56);
+        border-top: 1px solid rgba(18, 17, 39, 0.12);
+        padding-top:30px;
+        
+
+    }
+
+}

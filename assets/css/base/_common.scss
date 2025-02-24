@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+  
+  font-family: "Comfortaa", serif;;
+  font-size: 16px;
+  line-height: 27px;
+  background-color:#fff;
+  color:#333;
+  
+}
+img{
+  max-width:100%;
+  vertical-align: middle;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #333;
+  transition: .3s;
+}
+.mx-auto{
+  margin:auto;
+}
+.fix:before,.fix:after{
+  content: " ";
+  clear:both;
+  display: table;
+}
+

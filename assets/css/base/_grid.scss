@@ -1,0 +1,217 @@
+@import 'mixin';
+// Breakpoints
+$grid_breakpoints: (
+    'xs': 576px,
+    'md': 800px,
+    'lg': 1000px,
+    'xl': 1200px,
+    'xxl': 1400px
+);
+
+
+// Container Widths
+$container-widths: (
+    'md': 750px,
+    'lg': 970px,
+    'xl': 1170px,
+    'xxl': 1320px
+);
+
+
+// Base Container Styles
+.container {
+    width: 100%;
+    padding: 0 30px;
+    margin: auto;
+    
+   
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+}
+
+
+// Mixin: Generate Columns
+@mixin generate-columns($breakpoint) {
+    @for $i from 1 through 12 {
+        .col-#{$breakpoint}-#{$i} {
+            width: (100 / 12) * $i * 1%;
+            padding: 15px;
+        }
+    }
+}
+
+
+// Mixin: Generate Spacing Utilities
+@mixin generate-spacing-classes($breakpoint) {
+    @for $i from 1 through 10 {
+        .mt-#{$breakpoint}-#{$i * 10} {
+            margin-top: 10px * $i;
+        }
+        .mr-#{$breakpoint}-#{$i * 10} {
+            margin-right: 10px * $i;
+        }
+        .mb-#{$breakpoint}-#{$i * 10} {
+            margin-bottom: 10px * $i;
+        }
+        .ml-#{$breakpoint}-#{$i * 10} {
+            margin-left: 10px * $i;
+        }
+        .pt-#{$breakpoint}-#{$i * 10} {
+            padding-top: 10px * $i;
+        }
+        .pr-#{$breakpoint}-#{$i * 10} {
+            padding-right: 10px * $i;
+        }
+        .pb-#{$breakpoint}-#{$i * 10} {
+            padding-bottom: 10px * $i;
+        }
+        .pl-#{$breakpoint}-#{$i * 10} {
+            padding-left: 10px * $i;
+        }
+    }
+}
+
+
+// Generate Flexbox Utilities
+@mixin generate-flexbox-utilities($breakpoint) {
+    // Justify Content
+    .justify-#{$breakpoint}-start {
+        justify-content: flex-start;
+    }
+    .justify-#{$breakpoint}-end {
+        justify-content: flex-end;
+    }
+    .justify-#{$breakpoint}-center {
+        justify-content: center;
+    }
+    .justify-#{$breakpoint}-between {
+        justify-content: space-between;
+    }
+    .justify-#{$breakpoint}-around {
+        justify-content: space-around;
+    }
+    .justify-#{$breakpoint}-evenly {
+        justify-content: space-evenly;
+    }
+
+
+    // Align Items
+    .align-#{$breakpoint}-start {
+        align-items: flex-start;
+    }
+    .align-#{$breakpoint}-end {
+        align-items: flex-end;
+    }
+    .align-#{$breakpoint}-center {
+        align-items: center;
+    }
+    .align-#{$breakpoint}-baseline {
+        align-items: baseline;
+    }
+    .align-#{$breakpoint}-stretch {
+        align-items: stretch;
+    }
+
+
+    // Align Content
+    .align-content-#{$breakpoint}-start {
+        align-content: flex-start;
+    }
+    .align-content-#{$breakpoint}-end {
+        align-content: flex-end;
+    }
+    .align-content-#{$breakpoint}-center {
+        align-content: center;
+    }
+    .align-content-#{$breakpoint}-between {
+        align-content: space-between;
+    }
+    .align-content-#{$breakpoint}-around {
+        align-content: space-around;
+    }
+    .align-content-#{$breakpoint}-stretch {
+        align-content: stretch;
+    }
+
+
+    // Align Self
+    .align-self-#{$breakpoint}-auto {
+        align-self: auto;
+    }
+    .align-self-#{$breakpoint}-start {
+        align-self: flex-start;
+    }
+    .align-self-#{$breakpoint}-end {
+        align-self: flex-end;
+    }
+    .align-self-#{$breakpoint}-center {
+        align-self: center;
+    }
+    .align-self-#{$breakpoint}-baseline {
+        align-self: baseline;
+    }
+    .align-self-#{$breakpoint}-stretch {
+        align-self: stretch;
+    }
+}
+//text align
+@mixin generate-text-align-utilities($breakpoint) {
+    // Text Alignment
+    .text-#{$breakpoint}-left {
+        text-align: left;
+    }
+    .text-#{$breakpoint}-right {
+        text-align: right;
+    }
+    .text-#{$breakpoint}-center {
+        text-align: center;
+    }
+    .text-#{$breakpoint}-justify {
+        text-align: justify;
+    }
+    .text-#{$breakpoint}-start {
+        text-align: start;
+    }
+    .text-#{$breakpoint}-end {
+        text-align: end;
+    }
+}
+
+
+// Mobile-Specific Styles
+@media only screen and (max-width: map-get($grid_breakpoints, 'xs')) {
+    .row > * {
+        width: 100%;
+        padding: 15px 0;
+    }
+}
+
+
+// Generate Styles for Each Breakpoint
+@each $breakpoint, $value in $grid_breakpoints {
+    @media only screen and (min-width: $value) {
+        // Container Widths
+        @if map-has-key($container-widths, $breakpoint) {
+            .container {
+                width: map-get($container-widths, $breakpoint);
+            }
+        }
+
+
+        // Generate Columns
+        @include generate-columns($breakpoint);
+
+
+        // Generate Spacing Utilities
+        @include generate-spacing-classes($breakpoint);
+             
+        @include  generate-text-align-utilities($breakpoint);
+    
+
+        @include generate-flexbox-utilities($breakpoint);
+    }
+}
